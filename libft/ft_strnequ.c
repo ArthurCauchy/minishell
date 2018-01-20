@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acauchy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/20 12:27:27 by acauchy          ###   ########.fr       */
+/*   Created: 2017/11/14 19:57:20 by acauchy           #+#    #+#             */
+/*   Updated: 2017/11/16 10:03:40 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __MINISHELL_H
-# define __MINISHELL_H
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include "libft.h"
-
-# define PROMPT "$> "
-
-#endif
+int	ft_strnequ(const char *s1, const char *s2, size_t n)
+{
+	if (s1 && s2 && ft_strncmp(s1, s2, n) == 0)
+		return (1);
+	else
+		return (0);
+}

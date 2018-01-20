@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acauchy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/20 12:27:27 by acauchy          ###   ########.fr       */
+/*   Created: 2017/11/14 16:04:42 by acauchy           #+#    #+#             */
+/*   Updated: 2017/11/17 10:32:20 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __MINISHELL_H
-# define __MINISHELL_H
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include "libft.h"
+char	*ft_strnew(size_t size)
+{
+	char	*str;
 
-# define PROMPT "$> "
-
-#endif
+	if (!(str = (char*)ft_memalloc(size + 1)))
+		return (NULL);
+	return (str);
+}

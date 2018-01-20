@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acauchy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/20 12:27:27 by acauchy          ###   ########.fr       */
+/*   Created: 2017/11/10 09:52:09 by acauchy           #+#    #+#             */
+/*   Updated: 2017/11/16 10:09:40 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __MINISHELL_H
-# define __MINISHELL_H
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include "libft.h"
-
-# define PROMPT "$> "
-
-#endif
+void	ft_putendl(char const *str)
+{
+	if (str)
+	{
+		while (*str != '\0')
+			ft_putchar(*str++);
+		ft_putchar('\n');
+	}
+}

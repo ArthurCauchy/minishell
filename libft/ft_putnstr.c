@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_putnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acauchy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/20 12:27:27 by acauchy          ###   ########.fr       */
+/*   Created: 2017/11/10 09:51:54 by acauchy           #+#    #+#             */
+/*   Updated: 2017/12/01 11:57:34 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __MINISHELL_H
-# define __MINISHELL_H
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include "libft.h"
+void	ft_putnstr(char const *str, size_t n)
+{
+	size_t	i;
 
-# define PROMPT "$> "
-
-#endif
+	i = 0;
+	if (str)
+		while (i < n && str[i] != '\0')
+			ft_putchar(str[i++]);
+}

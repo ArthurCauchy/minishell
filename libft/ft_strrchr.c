@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: acauchy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/20 12:27:27 by acauchy          ###   ########.fr       */
+/*   Created: 2017/11/10 10:39:33 by acauchy           #+#    #+#             */
+/*   Updated: 2017/11/22 10:11:58 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __MINISHELL_H
-# define __MINISHELL_H
+#include <string.h>
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include "libft.h"
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t	len;
+	size_t	i;
 
-# define PROMPT "$> "
-
-#endif
+	len = ft_strlen(s);
+	i = len;
+	while (1)
+	{
+		if (s[i] == c)
+			return ((char*)s + i);
+		if (i == 0)
+			break ;
+		--i;
+	}
+	return (0);
+}

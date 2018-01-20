@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/20 12:29:14 by acauchy          ###   ########.fr       */
+/*   Created: 2017/12/21 16:00:19 by acauchy           #+#    #+#             */
+/*   Updated: 2017/12/21 16:55:37 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-static void	print_prompt(void)
+int	ft_nbrlen(long long nb)
 {
-	ft_putstr_fd(PROMPT, 1);
-}
+	size_t	len;
 
-static char *read_input(void)
-{
-	static char	input[4096];
-	size_t		size_read = 0;
-
-	size_read = read(0, input, 4096);
-	/*if (size_read == -1)
-		exit_error("error: read");*/
-	input[size_read] = '\0';
-	return (ft_strdup(input));
-}
-
-int			main(void)
-{
-	print_prompt();
-	ft_putendl(read_input());
-	return (0);
+	len = 0;
+	if (nb < 0)
+	{
+		++len;
+		nb *= -1;
+	}
+	else if (nb == 0)
+		return (1);
+	while (nb != 0)
+	{
+		nb = nb / 10;
+		++len;
+	}
+	return (len);
 }
