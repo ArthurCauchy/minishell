@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/24 13:47:22 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/01/25 13:26:17 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void start_process(char *input)
 		exit_error("fork() error");
 	if (pid == 0)
 	{
-		ft_putendl(input);
+		execv(input, NULL);
 		free(input);
 		exit(0);
 	}
