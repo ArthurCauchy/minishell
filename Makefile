@@ -6,7 +6,7 @@
 #    By: acauchy <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/29 10:04:49 by acauchy           #+#    #+#              #
-#    Updated: 2018/01/25 13:57:26 by acauchy          ###   ########.fr        #
+#    Updated: 2018/01/26 12:41:00 by arthur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,10 @@ CC = gcc -g3
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_NAME = main.c \
-		   cmdline.c
+		   cmdline.c \
+		   builtin.c \
+		   builtin_manager.c \
+		   utils.c
 
 OBJ_PATH = objs
 OBJ_NAME = $(SRC_NAME:.c=.o)
