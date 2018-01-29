@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:06:00 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/29 12:28:26 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/01/29 13:33:06 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,11 @@ int	builtin_cd(char *input)
 		return (0);
 	}
 	return (-1);
+}
+
+int	builtin_env(char *input)
+{
+	(void)input;
+	print_env();
+	return (0);
 }

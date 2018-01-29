@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/29 11:54:42 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/01/29 13:34:19 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void				exit_error(char *errmsg);
 int					builtin_exit(char *input);
 int					builtin_pwd(char *input);
 int					builtin_cd(char *input);
+int					builtin_env(char *input);
 
 /*
 ** builtin_manager.c

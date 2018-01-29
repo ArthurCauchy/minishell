@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/29 12:28:28 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/01/29 14:01:54 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int			main(void)
 	load_builtin("exit", &builtin_exit);
 	load_builtin("pwd", &builtin_pwd);
 	load_builtin("cd", &builtin_cd);
+	load_builtin("env", &builtin_env);
 	while ((rep = ask_for_input()))
 	{
 		retcode = search_start_builtin(rep);
