@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/26 14:28:01 by arthur           ###   ########.fr       */
+/*   Updated: 2018/01/29 12:28:28 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,21 @@ static char *ask_for_input(void)
 int			main(void)
 {
 	char	*rep;
+	int		retcode;
 	
 	load_builtin("exit", &builtin_exit);
 	load_builtin("pwd", &builtin_pwd);
 	load_builtin("cd", &builtin_cd);
 	while ((rep = ask_for_input()))
 	{
-		if (search_start_builtin(rep) == 1)
+		retcode = search_start_builtin(rep);
+		if (retcode == 1)
 		{
 			ft_putendl("Not a builtin, should start a process.");
 			//start_process(rep);
 		}
 		free(rep);
 	}
+	clear_builtins();
 	return (0);
 }

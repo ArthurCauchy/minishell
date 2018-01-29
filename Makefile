@@ -6,7 +6,7 @@
 #    By: acauchy <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/29 10:04:49 by acauchy           #+#    #+#              #
-#    Updated: 2018/01/26 12:41:00 by arthur           ###   ########.fr        #
+#    Updated: 2018/01/29 11:46:23 by acauchy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRC_NAME = main.c \
 		   cmdline.c \
 		   builtin.c \
 		   builtin_manager.c \
-		   utils.c
+		   utils.c \
+		   env.c
 
 OBJ_PATH = objs
 OBJ_NAME = $(SRC_NAME:.c=.o)

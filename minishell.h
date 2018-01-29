@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/26 14:25:00 by arthur           ###   ########.fr       */
+/*   Updated: 2018/01/29 11:54:42 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 # define PROMPT "segvsh$ "
 # define BUILTIN_MAX 42
+
+extern char **environ;
 
 typedef struct 		s_cmdline
 {
@@ -62,5 +64,12 @@ int					builtin_cd(char *input);
 void				clear_builtins(void);
 void				load_builtin(char *name, int (*func)(char*));
 int					search_start_builtin(char *input);
+
+/*
+** env.c
+*/
+
+void				print_env(void);
+char				*read_from_env(char *key);
 
 #endif
