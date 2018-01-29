@@ -6,7 +6,7 @@
 #    By: acauchy <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/29 10:04:49 by acauchy           #+#    #+#              #
-#    Updated: 2018/01/29 11:46:23 by acauchy          ###   ########.fr        #
+#    Updated: 2018/01/29 14:36:50 by acauchy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,11 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC_NAME = main.c \
 		   cmdline.c \
-		   builtin.c \
-		   builtin_manager.c \
+		   builtins_manager.c \
+		   builtin_exit.c \
+		   builtin_pwd.c \
+		   builtin_cd.c \
+		   builtin_env.c \
 		   utils.c \
 		   env.c
 

@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/29 13:34:19 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/01/29 15:33:00 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@
 # define PROMPT "segvsh$ "
 # define BUILTIN_MAX 42
 
-extern char **environ;
-
-typedef struct 		s_cmdline
+typedef struct		s_cmdline
 {
 	char	*command;
 	char	**args;
@@ -50,15 +48,6 @@ t_cmdline			*str_to_cmdline(char *str);
 void				exit_error(char *errmsg);
 
 /*
-** builtin.c
-*/
-
-int					builtin_exit(char *input);
-int					builtin_pwd(char *input);
-int					builtin_cd(char *input);
-int					builtin_env(char *input);
-
-/*
 ** builtin_manager.c
 */
 
@@ -67,9 +56,19 @@ void				load_builtin(char *name, int (*func)(char*));
 int					search_start_builtin(char *input);
 
 /*
+** builtin_[builtin_name].c
+*/
+
+int					builtin_exit(char *input);
+int					builtin_pwd(char *input);
+int					builtin_cd(char *input);
+int					builtin_env(char *input);
+
+/*
 ** env.c
 */
 
+char				**get_env(char **envp);
 void				print_env(void);
 char				*read_from_env(char *key);
 

@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/29 14:01:54 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/01/29 15:37:29 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	print_prompt(void)
 	ft_putstr_fd(PROMPT, 1);
 }
 
-static char *ask_for_input(void)
+static char	*ask_for_input(void)
 {
 	static char	input[4096];
 	int			size_read;
@@ -57,11 +57,14 @@ static char *ask_for_input(void)
 	}
 }*/
 
-int			main(void)
+int			main(int argc, char **argv, char **envp)
 {
 	char	*rep;
 	int		retcode;
-	
+
+	(void)argc;
+	(void)argv;
+	get_env(envp);
 	load_builtin("exit", &builtin_exit);
 	load_builtin("pwd", &builtin_pwd);
 	load_builtin("cd", &builtin_cd);

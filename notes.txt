@@ -1,7 +1,8 @@
 http://i.paysdu42.fr/?page=minishell.c
 https://brennan.io/2015/01/16/write-a-shell-in-c/
 
-- Rendre abstrait les builtin pour permettre d'en ajouter/enlever a volonte. Cree un tableau de struct et une fonction 'load_builtin'.
 - faire un truc pas degeu pour les alias plus tard
 - TODO pre-split l'input avant de l'envoyer aux builtins (et peut-etre meme aux forks)
-- TODO gerer l'environnement via la globale char **environ
+- TODO gerer 'cd -'
+- gerer si on redirige /dev/null ou de la merde vers le shell
+- pas crash si env vide

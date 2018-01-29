@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   builtins_manager.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/29 14:24:18 by acauchy           #+#    #+#             */
+/*   Updated: 2018/01/29 15:35:06 by acauchy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 static t_builtin	**get_builtins(void)
 {
 	static t_builtin	*builtins[BUILTIN_MAX] = {NULL};
+
 	return (builtins);
 }
 
@@ -10,10 +23,11 @@ static t_builtin	**get_builtins(void)
 ** Clear the loaded builtins.
 ** Has to be performed before exiting to avoir memory leaks.
 */
+
 void				clear_builtins(void)
 {
 	t_builtin	**builtins;
-	int	i;
+	int			i;
 
 	builtins = get_builtins();
 	i = 0;
@@ -27,6 +41,7 @@ void				clear_builtins(void)
 /*
 ** Loads a new builtin command.
 */
+
 void				load_builtin(char *name, int (*func)(char*))
 {
 	t_builtin	*new;
@@ -53,6 +68,7 @@ void				load_builtin(char *name, int (*func)(char*))
 ** 1 = not a builtin
 ** -1 = error with the builtin
 */
+
 int					search_start_builtin(char *input)
 {
 	char		**split;
