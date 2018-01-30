@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/29 15:37:29 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/01/30 13:49:39 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,19 @@ int			main(int argc, char **argv, char **envp)
 {
 	char	*rep;
 	int		retcode;
+	t_env	*env;
 
 	(void)argc;
 	(void)argv;
-	get_env(envp);
+	env = NULL;
 	load_builtin("exit", &builtin_exit);
 	load_builtin("pwd", &builtin_pwd);
 	load_builtin("cd", &builtin_cd);
 	load_builtin("env", &builtin_env);
+	init_env(&env, envp);
 	while ((rep = ask_for_input()))
 	{
-		retcode = search_start_builtin(rep);
+		retcode = search_start_builtin(&env, rep);
 		if (retcode == 1)
 		{
 			ft_putendl("Not a builtin, should start a process.");

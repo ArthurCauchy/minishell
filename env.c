@@ -6,60 +6,53 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:48:57 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/29 15:36:21 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/01/30 14:03:22 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	**get_env(char **envp)
+void	init_env(t_env **env, char **envp)
 {
-	static char	**env = {NULL};
-
-	if (envp)
-		env = envp;
-	return (env);
-}
-
-void	print_env(void)
-{
-	char	**env;
 	size_t	i;
+	size_t	j;
 
-	env = get_env(NULL);
+	(void)env;
 	i = 0;
-	while (env[i])
+	while (envp[i])
 	{
-		ft_putendl(env[i]);
+		j = 0;
+		while (envp[i][j])
+		{
+			if (envp[i][j++] == '=')
+				set_env(env, ft_strsub(envp[i], 0, j - 1), ft_strdup(&envp[i][j]));
+		}
 		++i;
 	}
 }
 
-char	*read_from_env(char *key)
+void	print_env(t_env **env)
 {
-	char	**env;
-	size_t	i;
-	size_t	j;
+	t_env	*cur;
 
-	env = get_env(NULL);
-	i = 0;
-	while (env[i])
+	cur = *env;
+	while (cur)
 	{
-		j = 0;
-		while (env[i][j])
-		{
-			if (key[j] != env[i][j])
-			{
-				if (env[i][j] == '=')
-					return (ft_strdup(&env[i][j + 1]));
-				else
-					break ;
-			}
-			++j;
-			if (!key)
-				break ;
-		}
-		++i;
+		ft_miniprint("%l0s%=%l0s%\n", cur->key, cur->value);
+		cur = cur->next;
+	}
+}
+
+char	*read_from_env(t_env **env, char *key)
+{
+	t_env	*cur;
+
+	cur = *env;
+	while (cur)
+	{
+		if (ft_strcmp(cur->key, key) == 0)
+			return (ft_strdup(cur->value));
+		cur = cur->next;
 	}
 	return (NULL);
 }
