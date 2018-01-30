@@ -6,3 +6,4 @@ https://brennan.io/2015/01/16/write-a-shell-in-c/
 - TODO gerer 'cd -'
 - gerer si on redirige /dev/null ou de la merde vers le shell
 - pas crash si env vide
+- ça serait pas mal de gérer les quotes comme le fait tcsh : unmatched quote. par contre elle peut être escape

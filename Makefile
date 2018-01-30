@@ -6,7 +6,7 @@
 #    By: acauchy <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/29 10:04:49 by acauchy           #+#    #+#              #
-#    Updated: 2018/01/30 12:13:57 by acauchy          ###   ########.fr        #
+#    Updated: 2018/01/30 16:07:28 by acauchy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC_NAME = main.c \
 		   builtin_pwd.c \
 		   builtin_cd.c \
 		   builtin_env.c \
+		   parser.c \
 		   utils.c \
 		   s_env.c \
 		   env.c
