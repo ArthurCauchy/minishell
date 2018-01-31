@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/30 13:59:36 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/01/31 17:34:26 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 
 # define PROMPT "segvsh$ "
 # define BUILTIN_MAX 42
+# define INPUT_MAX_LEN 16384
+# define PARAMS_MAX 512
 
 typedef struct		s_cmdline
 {
@@ -41,7 +43,7 @@ typedef struct		s_env
 typedef struct		s_builtin
 {
 	char	*name;
-	int		(*func)(t_env**, char*);
+	int		(*func)(t_env**, char**);
 }					t_builtin;
 
 /*
@@ -61,17 +63,17 @@ void				exit_error(char *errmsg);
 */
 
 void				clear_builtins(void);
-void				load_builtin(char *name, int (*func)(t_env**, char*));
-int					search_start_builtin(t_env **env, char *input);
+void				load_builtin(char *name, int (*func)(t_env**, char**));
+int					search_start_builtin(t_env **env, char **args);
 
 /*
 ** builtin_[builtin_name].c
 */
 
-int					builtin_exit(t_env **env, char *input);
-int					builtin_pwd(t_env **env, char *input);
-int					builtin_cd(t_env **env, char *input);
-int					builtin_env(t_env **env, char *input);
+int					builtin_exit(t_env **env, char **args);
+int					builtin_pwd(t_env **env, char **args);
+int					builtin_cd(t_env **env, char **args);
+int					builtin_env(t_env **env, char **args);
 
 /*
 ** s_env.c
@@ -88,5 +90,12 @@ void				set_env(t_env **head, char *key, char *value);
 void				init_env(t_env **env, char **envp);
 void				print_env(t_env **env);
 char				*read_from_env(t_env **env, char *key);
+
+/*
+** parser.c
+*/
+
+char				**parse_input(char *input, char **errmsg);
+void				delete_args(char **args);
 
 #endif

@@ -1,9 +1,11 @@
 http://i.paysdu42.fr/?page=minishell.c
 https://brennan.io/2015/01/16/write-a-shell-in-c/
 
+- TODO dossiers includes et srcs
+- TODO update l'executable quand header modifie
+
 - faire un truc pas degeu pour les alias plus tard
-- TODO pre-split l'input avant de l'envoyer aux builtins (et peut-etre meme aux forks)
 - TODO gerer 'cd -'
 - gerer si on redirige /dev/null ou de la merde vers le shell
 - pas crash si env vide
-- ça serait pas mal de gérer les quotes comme le fait tcsh : unmatched quote. par contre elle peut être escape
+- tester les leaks avant de passer aux execve

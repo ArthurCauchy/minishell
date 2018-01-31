@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 14:24:18 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/30 13:50:23 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/01/31 17:26:53 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void				clear_builtins(void)
 ** Loads a new builtin command.
 */
 
-void				load_builtin(char *name, int (*func)(t_env**, char*))
+void				load_builtin(char *name, int (*func)(t_env**, char**))
 {
 	t_builtin	*new;
 	t_builtin	**builtins;
@@ -69,23 +69,18 @@ void				load_builtin(char *name, int (*func)(t_env**, char*))
 ** -1 = error with the builtin
 */
 
-int					search_start_builtin(t_env **env, char *input)
+int					search_start_builtin(t_env **env, char **args)
 {
-	char		**split;
 	t_builtin	**builtins;
 	int			i;
 
-	split = ft_strsplit(input, ' ');
-	if (!split[0])
-		return (0);
 	builtins = get_builtins();
 	i = 0;
 	while (i < BUILTIN_MAX && builtins[i] != NULL)
 	{
-		if (strcmp(split[0], builtins[i]->name) == 0)
-			return (builtins[i]->func(env, input));
+		if (ft_strcmp(args[0], builtins[i]->name) == 0)
+			return (builtins[i]->func(env, args));
 		++i;
 	}
-	free(split);
 	return (1);
 }

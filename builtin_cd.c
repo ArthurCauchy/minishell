@@ -6,20 +6,18 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:06:00 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/30 13:52:37 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/01/31 17:16:58 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	builtin_cd(t_env **env, char *input)
+int	builtin_cd(t_env **env, char **args)
 {
-	char	**split;
 	char	*home;
 
-	split = ft_strsplit(input, ' ');
-	if (split[1])
-		return (chdir(split[1]));
+	if (args[1])
+		return (chdir(args[1]));
 	else
 	{
 		if (!(home = read_from_env(env, "HOME")))
