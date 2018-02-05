@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/05 12:50:56 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/05 13:16:57 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int					builtin_unsetenv(t_env **env, char **args);
 */
 
 void				clear_env(t_env *env);
-void				unset_env(t_env *head, char *key);
+void				unset_env(t_env **head, char *key);
 void				set_env(t_env **head, char *key, char *value);
 
 /*

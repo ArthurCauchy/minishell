@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 11:03:45 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/05 12:45:57 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/05 13:27:37 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,13 @@ void			set_env(t_env **head, char *key, char *value)
 	}
 }
 
-void			unset_env(t_env *head, char *key)
+void			unset_env(t_env **head, char *key)
 {
 	t_env	*cur;
 	t_env	*prev;
 	t_env	*tmp;
 
-	cur = head;
+	cur = *head;
 	prev = NULL;
 	while (cur)
 	{
@@ -86,6 +86,8 @@ void			unset_env(t_env *head, char *key)
 			if (prev)
 				prev->next = cur->next;
 			tmp = cur->next;
+			if (cur == *head)
+				*head = cur->next;
 			free(cur->key);
 			free(cur->value);
 			free(cur);
