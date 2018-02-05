@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:06:00 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/31 17:17:27 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/05 12:11:21 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 int	builtin_exit(t_env **env, char **args)
 {
-	(void)env;
-	(void)args;
+	int	exit_status;
+
+	exit_status = 0;
+	if (args[1])
+		exit_status = ft_atoi(args[1]);
+	delete_args(args);
+	clear_env(*env);
 	clear_builtins();
-	exit(EXIT_SUCCESS);
+	exit(exit_status);
 }

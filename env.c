@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:48:57 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/30 14:03:22 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/05 10:43:45 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void	init_env(t_env **env, char **envp)
 		while (envp[i][j])
 		{
 			if (envp[i][j++] == '=')
+			{
 				set_env(env, ft_strsub(envp[i], 0, j - 1), ft_strdup(&envp[i][j]));
+				break ;
+			}
 		}
 		++i;
 	}
