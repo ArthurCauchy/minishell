@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:06:00 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/05 12:43:00 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/05 13:50:51 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	is_key_alphanum(char *key)
 {
 	while (*key)
 	{
-		if (!ft_isalnum(*key))
+		if (!(ft_isalnum(*key) || *key == '_'))
 			return (0);
 		++key;
 	}
@@ -32,6 +32,11 @@ int	builtin_setenv(t_env **env, char **args)
 		if (!is_key_alphanum(args[1]))
 		{
 			ft_putendl_fd("setenv: Variable name must contain alphanumeric charaters.", 2);
+			return (-1);
+		}
+		if (ft_isdigit(*args[1]))
+		{
+			ft_putendl_fd("setenv: Variable name must begin with a letter.", 2);
 			return (-1);
 		}
 		if (!args[2])
