@@ -5,4 +5,3 @@ https://brennan.io/2015/01/16/write-a-shell-in-c/
 - gerer si on redirige /dev/null ou de la merde vers le shell
 - pas crash si env vide
 - TODO builtin env
-- TOFIX 'setenv  ', 'cd ', '' --> crash

@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 14:24:18 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/31 17:26:53 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/06 17:34:21 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void				load_builtin(char *name, int (*func)(t_env**, char**))
 	t_builtin	**builtins;
 	int			i;
 
-	if (!(new = (t_builtin*)malloc(sizeof(t_builtin))))
+	if (!(new = (t_builtin*)ft_memalloc(sizeof(t_builtin))))
 		exit_error("load_builtin malloc() error");
 	new->name = name;
 	new->func = func;

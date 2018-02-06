@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:06:00 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/06 16:15:40 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/06 16:25:03 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	try_cd(t_env **env, char *path)
 		exit_error("getcwd() error");
 	if (chdir(path) == -1)
 	{
-		ft_miniprint("cd: Error changing dir to '%l0s%'\n", &path);
+		ft_miniprint("cd: Error changing dir to '%l0s%'\n", path);
 		return (-1);
 	}
 	set_env(env, ft_strdup("OLDPWD"), ft_strdup(curr_pwd));

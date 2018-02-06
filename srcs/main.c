@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/05 13:02:30 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/06 16:56:30 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int			main(int argc, char **argv, char **envp)
 	(void)argc;
 	(void)argv;
 	env = NULL;
+	args = NULL;
 	load_builtin("exit", &builtin_exit);
 	load_builtin("pwd", &builtin_pwd);
 	load_builtin("cd", &builtin_cd);
@@ -77,7 +78,8 @@ int			main(int argc, char **argv, char **envp)
 	init_env(&env, envp);
 	while ((rep = ask_for_input()))
 	{
-		if (!(args = parse_input(rep, &errmsg)))
+		args = parse_input(rep, &errmsg);
+		if (!args)
 		{
 			ft_putendl(errmsg);
 			free(errmsg);
@@ -85,11 +87,14 @@ int			main(int argc, char **argv, char **envp)
 		free(rep);
 		if (args)
 		{
-			retcode = search_start_builtin(&env, args);
-			if (retcode == 1)
+			if (args[0])
 			{
-				ft_putendl("Not a builtin, should start a process.");
-				//start_process(rep);
+				retcode = search_start_builtin(&env, args);
+				if (retcode == 1)
+				{
+					ft_putendl("Not a builtin, should start a process.");
+					//start_process(rep);
+				}
 			}
 			delete_args(args);
 		}
