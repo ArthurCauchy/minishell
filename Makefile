@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: acauchy <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/29 10:04:49 by acauchy           #+#    #+#              #
-#    Updated: 2018/02/05 12:50:28 by arthur           ###   ########.fr        #
+#    Updated: 2018/02/06 14:50:06 by arthur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,11 @@ NAME = minishell
 CC = gcc -g3
 CFLAGS = -Wall -Wextra -Werror
 
+HEADER_PATH = headers
+HEADER_NAME = minishell.h
+HEADER = $(addprefix $(HEADER_PATH)/,$(HEADER_NAME))
+
+SRC_PATH = srcs
 SRC_NAME = main.c \
 		   cmdline.c \
 		   builtins_manager.c \
@@ -39,6 +44,7 @@ SRC_NAME = main.c \
 		   utils.c \
 		   s_env.c \
 		   env.c
+SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 OBJ_PATH = objs
 OBJ_NAME = $(SRC_NAME:.c=.o)
@@ -50,8 +56,8 @@ LIBFT = -L$(LIBFT_PATH) -lft
 
 all: compile
 
-$(OBJ_PATH)/%.o: %.c
-	$(CC) -c $(CFLAGS) $< $(LIBFT_INCLUDE) -o $@
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)
+	$(CC) -c -o $@ $(CFLAGS) $< $(LIBFT_INCLUDE) -I$(HEADER_PATH)
 
 $(NAME): $(OBJ)
 	@echo -e $(COLOR_YELLOW)"Linking "$@"..."$(COLOR_RESET)

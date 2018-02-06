@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 11:03:45 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/05 13:55:43 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/06 14:45:55 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void			clear_env(t_env *env)
 	{
 		prev = env;
 		env = env->next;
-		ft_memdel(prev->key);
-		ft_memdel(prev->value);
-		ft_memdel(prev);
+		free(prev->key);
+		free(prev->value);
+		free(prev);
 	}
 }
 
@@ -56,8 +56,9 @@ void			set_env(t_env **head, char *key, char *value)
 	{
 		if (ft_strcmp(cur->key, key) == 0)
 		{
-			ft_memdel(key);
-			ft_memdel(cur->value);
+			free(cur->key);
+			free(cur->value);
+			cur->key = key;
 			cur->value = value;
 			return ;
 		}
@@ -88,9 +89,9 @@ void			unset_env(t_env **head, char *key)
 			tmp = cur->next;
 			if (cur == *head)
 				*head = cur->next;
-			ft_memdel(cur->key);
-			ft_memdel(cur->value);
-			ft_memdel(cur);
+			free(cur->key);
+			free(cur->value);
+			free(cur);
 			cur = tmp;
 		}
 		else
