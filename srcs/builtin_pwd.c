@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:06:00 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/31 17:17:44 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/06 16:18:37 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	builtin_pwd(t_env **env, char **args)
 {
-	char	current_dir[4096];
+	char	current_dir[MAX_PATH_SIZE];
 
 	(void)env;
 	(void)args;
-	if (!getcwd(current_dir, 4096))
+	if (!getcwd(current_dir, MAX_PATH_SIZE))
 		exit_error("getcwd() error");
 	ft_putendl(current_dir);
 	return (0);

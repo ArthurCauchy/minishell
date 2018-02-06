@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/06 14:50:43 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/06 15:57:24 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define BUILTIN_MAX 42
 # define INPUT_MAX_LEN 16384
 # define PARAMS_MAX 512
+# define MAX_PATH_SIZE 4096
 
 typedef struct		s_cmdline
 {
