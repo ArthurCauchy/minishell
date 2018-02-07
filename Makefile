@@ -6,7 +6,7 @@
 #    By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/29 10:04:49 by acauchy           #+#    #+#              #
-#    Updated: 2018/02/06 14:50:06 by arthur           ###   ########.fr        #
+#    Updated: 2018/02/07 21:30:17 by arthur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,9 @@ SRC_NAME = main.c \
 		   builtin_env.c \
 		   builtin_setenv.c \
 		   builtin_unsetenv.c \
+		   input.c \
+		   output.c \
+		   process.c \
 		   parser.c \
 		   utils.c \
 		   s_env.c \

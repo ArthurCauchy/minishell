@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 14:24:18 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/06 17:34:21 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/07 21:09:15 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void				load_builtin(char *name, int (*func)(t_env**, char**))
 **
 ** Returns :
 ** 0 = ok
-** 1 = not a builtin
 ** -1 = error with the builtin
+** -2 = not a builtin
 */
 
 int					search_start_builtin(t_env **env, char **args)
@@ -82,5 +82,5 @@ int					search_start_builtin(t_env **env, char **args)
 			return (builtins[i]->func(env, args));
 		++i;
 	}
-	return (1);
+	return (-2);
 }

@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/06 15:57:24 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/07 21:34:33 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,23 @@ char				*read_from_env(t_env **env, char *key);
 
 char				**parse_input(char *input, char **errmsg);
 void				delete_args(char **args);
+
+/*
+** input.c
+*/
+
+char				*ask_for_input(void);
+
+/*
+** output.c
+*/
+
+void				print_prompt(void);
+
+/*
+** process.c
+*/
+
+int					start_process(t_env **env, char **args);
 
 #endif
