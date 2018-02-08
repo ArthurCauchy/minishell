@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/08 12:32:17 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/08 15:24:52 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ void				set_env(t_env **head, char *key, char *value);
 void				init_env(t_env **env, char **envp);
 void				print_env(t_env **env);
 char				*read_from_env(t_env **env, char *key);
+char				**env_to_array(t_env **env);
 
 /*
 ** parser.c

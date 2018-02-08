@@ -13,7 +13,7 @@ int	start_process(t_env **env, char **args)
 		exit_error("fork() error");
 	if (pid == 0)
 	{
-		if (execve(args[0], args, NULL)) // NULL -> env
+		if (execve(args[0], args, env_to_array(env))) // NULL -> env
 			exit_error("execve() error");
 	}
 	else

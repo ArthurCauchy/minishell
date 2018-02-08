@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:48:57 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/06 14:51:06 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/08 15:24:50 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,31 @@ char	*read_from_env(t_env **env, char *key)
 		cur = cur->next;
 	}
 	return (NULL);
+}
+
+char	**env_to_array(t_env **env)
+{
+	t_env	*cur;
+	char	**array;
+	size_t	size;
+	size_t	i;
+	
+	cur = *env;
+	size = 0;
+	while (cur)
+	{
+		++size;
+		cur = cur->next;
+	}
+	if (!(array = (char**)malloc((size + 1) * sizeof(char*))))
+		exit_error("env_to_array malloc() error");
+	cur = *env;
+	i = 0;
+	while (cur)
+	{
+		array[i++] = ft_strjoin_free(ft_strjoin(cur->key, "="), ft_strdup(cur->value));
+		cur = cur->next;
+	}
+	array[i++] = NULL;
+	return (array);
 }
