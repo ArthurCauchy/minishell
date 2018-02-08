@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/08 11:37:53 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/08 12:32:17 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int					builtin_cd(t_env **env, char **args);
 int					builtin_env(t_env **env, char **args);
 int					builtin_setenv(t_env **env, char **args);
 int					builtin_unsetenv(t_env **env, char **args);
+int					builtin_echo(t_env **env, char **args);
 
 /*
 ** s_env.c
@@ -117,5 +118,9 @@ void				print_prompt(t_env **env);
 */
 
 int					start_process(t_env **env, char **args);
+
+/*
+** path.c
+*/
 
 #endif

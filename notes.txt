@@ -3,5 +3,4 @@ https://brennan.io/2015/01/16/write-a-shell-in-c/
 
 - faire un truc pas degeu pour les alias plus tard
 - gerer si on redirige /dev/null ou de la merde vers le shell
-- pas crash si env vide
 - TODO builtin env

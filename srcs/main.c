@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/08 11:30:31 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/08 12:33:19 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int			main(int argc, char **argv, char **envp)
 	load_builtin("env", &builtin_env);
 	load_builtin("setenv", &builtin_setenv);
 	load_builtin("unsetenv", &builtin_unsetenv);
+	load_builtin("echo", &builtin_echo);
 	init_env(&env, envp);
 	while ((rep = ask_for_input(&env)))
 	{

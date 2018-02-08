@@ -6,7 +6,7 @@
 #    By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/29 10:04:49 by acauchy           #+#    #+#              #
-#    Updated: 2018/02/08 11:37:32 by acauchy          ###   ########.fr        #
+#    Updated: 2018/02/08 12:32:51 by acauchy          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,13 +40,15 @@ SRC_NAME = main.c \
 		   builtin_env.c \
 		   builtin_setenv.c \
 		   builtin_unsetenv.c \
+		   builtin_echo.c \
 		   input.c \
 		   output.c \
 		   process.c \
 		   parser.c \
 		   utils.c \
 		   s_env.c \
-		   env.c
+		   env.c \
+		   path.c
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 OBJ_PATH = objs
