@@ -1,11 +1,11 @@
 #include "minishell.h"
 
-char	*ask_for_input(void)
+char	*ask_for_input(t_env **env)
 {
 	static char	input[INPUT_MAX_LEN];
 	int			size_read;
 
-	print_prompt();
+	print_prompt(env);
 	size_read = read(0, input, INPUT_MAX_LEN - 1);
 	if (size_read == -1)
 		exit_error("read() error");

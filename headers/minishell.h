@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/07 21:34:33 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/08 11:37:53 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <stdlib.h>
 # include "libft.h"
 
-# define PROMPT "segvsh$ "
 # define BUILTIN_MAX 42
 # define INPUT_MAX_LEN 16384
 # define PARAMS_MAX 512
@@ -105,13 +104,13 @@ void				delete_args(char **args);
 ** input.c
 */
 
-char				*ask_for_input(void);
+char				*ask_for_input(t_env **env);
 
 /*
 ** output.c
 */
 
-void				print_prompt(void);
+void				print_prompt(t_env **env);
 
 /*
 ** process.c
