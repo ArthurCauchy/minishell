@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:06:00 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/08 12:08:06 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/08 12:12:09 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	builtin_cd_withargs(t_env **env, char **args)
 		ft_putendl_fd("cd: Too many arguments.", 2);
 		return (-1);
 	}
-	if (strcmp(args[1], "-") == 0)
+	if (ft_strcmp(args[1], "-") == 0)
 	{
 		if (!(oldpwd = read_from_env(env, "OLDPWD")))
 		{
