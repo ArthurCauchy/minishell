@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/08 15:24:52 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/10 17:49:57 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,5 +123,7 @@ int					start_process(t_env **env, char **args);
 /*
 ** path.c
 */
+
+char				*find_cmd_path(t_env **env, char *cmd);
 
 #endif

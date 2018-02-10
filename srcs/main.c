@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/08 12:33:19 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/10 17:43:09 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int			main(int argc, char **argv, char **envp)
 				if (retcode == -2)
 				{
 					ft_putendl("Not a builtin, should start a process.");
+					find_cmd_path(&env, args[0]);
 					start_process(&env, args);
 				}
 			}
