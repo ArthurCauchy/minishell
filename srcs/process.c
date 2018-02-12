@@ -6,8 +6,7 @@ int	start_process(t_env **env, char **args)
 	int		status;
 
 	(void)env;
-	// avant faut convertir l'env en un char**
-	// tester aussi que l'executable est valide
+	// avant il faudrait tester que l'executable est valide
 	pid = fork();
 	if (pid == -1)
 		exit_error("fork() error");

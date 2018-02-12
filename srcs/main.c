@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/10 17:43:09 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/12 17:27:35 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int			main(int argc, char **argv, char **envp)
 	char	*rep;
 	char	*errmsg;
 	char	**args;
+	char	*after_path;
 	int		retcode;
 	t_env	*env;
 
@@ -49,8 +50,16 @@ int			main(int argc, char **argv, char **envp)
 				if (retcode == -2)
 				{
 					ft_putendl("Not a builtin, should start a process.");
-					find_cmd_path(&env, args[0]);
-					start_process(&env, args);
+					if ((after_path = find_cmd_path(&env, args[0])))
+					{
+						free(args[0]);
+						args[0] = after_path;
+						start_process(&env, args);
+					}
+					else
+					{
+						ft_miniprint("%l0s%: command not found.\n", args[0]);
+					}
 				}
 			}
 			delete_args(args);
