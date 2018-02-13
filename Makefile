@@ -32,7 +32,7 @@ HEADER = $(addprefix $(HEADER_PATH)/,$(HEADER_NAME))
 
 SRC_PATH = srcs
 SRC_NAME = main.c \
-		   cmdline.c \
+		   starter.c \
 		   builtins_manager.c \
 		   builtin_exit.c \
 		   builtin_pwd.c \
@@ -48,7 +48,8 @@ SRC_NAME = main.c \
 		   utils.c \
 		   s_env.c \
 		   env.c \
-		   path.c
+		   path.c \
+			 init.c
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 OBJ_PATH = objs

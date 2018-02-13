@@ -5,3 +5,4 @@ https://brennan.io/2015/01/16/write-a-shell-in-c/
 - gerer si on redirige /dev/null ou de la merde vers le shell
 - TODO builtin env
 - getcwd errror si on supprime le dossier dans lequel on est + pwd||cd (et surement d'autre commandes)
+- malheuresement F_OK ne suffit pas pour les calls access()

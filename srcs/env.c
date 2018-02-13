@@ -12,28 +12,6 @@
 
 #include "minishell.h"
 
-void	init_env(t_env **env, char **envp)
-{
-	size_t	i;
-	size_t	j;
-
-	(void)env;
-	i = 0;
-	while (envp[i])
-	{
-		j = 0;
-		while (envp[i][j])
-		{
-			if (envp[i][j++] == '=')
-			{
-				set_env(env, ft_strsub(envp[i], 0, j - 1), ft_strdup(&envp[i][j]));
-				break ;
-			}
-		}
-		++i;
-	}
-}
-
 void	print_env(t_env **env)
 {
 	t_env	*cur;

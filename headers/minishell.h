@@ -90,7 +90,6 @@ void				set_env(t_env **head, char *key, char *value);
 ** env.c
 */
 
-void				init_env(t_env **env, char **envp);
 void				print_env(t_env **env);
 char				*read_from_env(t_env **env, char *key);
 char				**env_to_array(t_env **env);
@@ -125,5 +124,18 @@ int					start_process(t_env **env, char **args);
 */
 
 char				*find_cmd_path(t_env **env, char *cmd);
+
+/*
+** init.c
+*/
+
+void				init_env(t_env **env, char **envp);
+void				init_builtins(void);
+
+/*
+** starter.c
+*/
+
+void				start_command(t_env **env, char **args);
 
 #endif
