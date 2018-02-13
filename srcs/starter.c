@@ -28,7 +28,7 @@ void start_command(t_env **env, char **args)
 				args[0] = after_path;
 				start_process(env, args);
 			}
-			else if (access(args[0], F_OK) == 0)
+			else if (access(args[0], X_OK) == 0)
 				start_process(env, args);
 			else
 			{

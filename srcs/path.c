@@ -19,7 +19,7 @@ static char	*try_access_indir(char *dir, char *cmd)
 	// virer les '/' en trop a la fin peut-etre ?
 	tmp = ft_strjoin(dir, "/");
 	tmp = ft_strjoin_free(tmp, ft_strdup(cmd));
-	if (access(tmp, F_OK) == 0)
+	if (access(tmp, X_OK) == 0)
 		return (tmp);
 	free(tmp);
 	return (NULL);
