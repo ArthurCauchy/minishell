@@ -27,12 +27,6 @@
 # define PARAMS_MAX 512
 # define MAX_PATH_SIZE 4096
 
-typedef struct		s_cmdline
-{
-	char	*command;
-	char	**args;
-}					t_cmdline;
-
 typedef struct		s_env
 {
 	char			*key;
@@ -45,12 +39,6 @@ typedef struct		s_builtin
 	char	*name;
 	int		(*func)(t_env**, char**);
 }					t_builtin;
-
-/*
-** cmdline.c
-*/
-
-t_cmdline			*str_to_cmdline(char *str);
 
 /*
 ** utils.c
@@ -85,6 +73,7 @@ int					builtin_echo(t_env **env, char **args);
 void				clear_env(t_env *env);
 void				unset_env(t_env **head, char *key);
 void				set_env(t_env **head, char *key, char *value);
+t_env				*copy_env(t_env **env);
 
 /*
 ** env.c

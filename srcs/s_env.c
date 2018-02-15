@@ -101,3 +101,27 @@ void			unset_env(t_env **head, char *key)
 		}
 	}
 }
+
+t_env	*copy_env(t_env **env)
+{
+	t_env	*cur;
+	t_env	*new_head;
+	t_env	*new_cur;
+	t_env	*new_prev;
+
+	cur = *env;
+	new_head = NULL;
+	new_prev = NULL;
+	while (cur)
+	{
+		if (!(new_cur = create_entry(ft_strdup(cur->key), ft_strdup(cur->value))))
+			exit_error("error creating new env entry in env_copy");
+		if (!new_head)
+			new_head = new_cur;
+		if (new_prev)
+			new_prev->next = new_cur;
+		new_prev = new_cur;
+		cur = cur->next;
+	}
+	return (new_head);
+}

@@ -12,9 +12,33 @@
 
 #include "minishell.h"
 
-int	builtin_env(t_env **env, char **args)
+static void	add_to_tmp_env(t_env **env, char *str)
 {
-	(void)args;
-	print_env(env);
+	char		*eq_char;
+
+	eq_char = ft_strchr(str, '=');
+	set_env(env, ft_strsub(str, 0, eq_char - str), ft_strdup(eq_char + 1));
+}
+
+int					builtin_env(t_env **env, char **args)
+{
+	t_env	*tmp_env;
+	int		i;
+
+	i = 1;
+	tmp_env = copy_env(env);
+	while (args[i] && ft_strchr(args[i], '='))
+	{
+		add_to_tmp_env(&tmp_env, args[i]);
+		++i;
+	}
+	if (args[i])
+	{
+		ft_putendl((args + i)[0]);
+		start_command(&tmp_env, args + i);
+	}
+	else
+		print_env(&tmp_env);
+	clear_env(tmp_env);
 	return (0);
 }
