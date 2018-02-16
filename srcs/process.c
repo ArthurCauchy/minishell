@@ -1,6 +1,14 @@
 #include "minishell.h"
 
-int	start_process(t_env **env, char **args)
+static void	post_process(int status)
+{
+	if (WIFSIGNALED(status))
+	{
+		print_sig_error(WTERMSIG(status));
+	}
+}
+
+int					start_process(t_env **env, char **args)
 {
 	pid_t	pid;
 	int		status;
@@ -21,6 +29,7 @@ int	start_process(t_env **env, char **args)
 		if (status == -1)
 			exit_error("wait() error");
 	}
+	post_process(status);
 	// gerer status (arret du child), voir si c'est code d'exit ou signal etc...
 	return (0); // et return selon
 }

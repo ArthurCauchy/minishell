@@ -101,6 +101,7 @@ char				*ask_for_input(t_env **env);
 */
 
 void				print_prompt(t_env **env);
+void				print_sig_error(int sig);
 
 /*
 ** process.c
