@@ -12,14 +12,13 @@
 
 #include "minishell.h"
 
-static char	*try_access_indir(char *dir, char *cmd)
+static char	*try_access_indir(char *dir, char *cmd, char **errmsg)
 {
 	char	*tmp;
 
-	// virer les '/' en trop a la fin peut-etre ?
 	tmp = ft_strjoin(dir, "/");
 	tmp = ft_strjoin_free(tmp, ft_strdup(cmd));
-	if (access(tmp, X_OK) == 0)
+	if (is_executable(tmp, errmsg))
 		return (tmp);
 	free(tmp);
 	return (NULL);
@@ -38,8 +37,7 @@ static void	free_splited_path(char **array)
 	free(array);
 }
 
-
-char		*find_cmd_path(t_env **env, char *cmd)
+char		*find_cmd_path(t_env **env, char *cmd, char **errmsg)
 {
 	char	*path;
 	char	**split_path;
@@ -53,11 +51,11 @@ char		*find_cmd_path(t_env **env, char *cmd)
 	cur = split_path;
 	while (*cur)
 	{
-		if ((ret = try_access_indir(*cur, cmd)))
+		if ((ret = try_access_indir(*cur, cmd, errmsg)))
 			break ;
 		++cur;
 	}
 	free_splited_path(split_path);
 	free(path);
-	return (ret); // command not found IN PATH
+	return (ret);
 }

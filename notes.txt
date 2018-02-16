@@ -6,4 +6,3 @@ https://brennan.io/2015/01/16/write-a-shell-in-c/
 - TODO check fuites memoire builtin env
 - getcwd errror si on supprime le dossier dans lequel on est + pwd||cd (et surement d'autre commandes)
 - pour les calls à access(), X_OK semble suffire (?)
-- TODO creer un fichier utils et une fonction try_access pour n'avoir qu'un seul call a access

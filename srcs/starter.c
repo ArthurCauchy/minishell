@@ -16,23 +16,26 @@ void start_command(t_env **env, char **args)
 {
 	int		retcode;
 	char	*after_path;
+	char	*errmsg;
 
+	errmsg = NULL;
 	if (args[0])
 	{
 		retcode = search_start_builtin(env, args);
 		if (retcode == -2)
 		{
-			if ((after_path = find_cmd_path(env, args[0])))
+			if ((after_path = find_cmd_path(env, args[0], &errmsg)))
 			{
 				free(args[0]);
 				args[0] = after_path;
 				start_process(env, args);
 			}
-			else if (access(args[0], X_OK) == 0)
+			else if (is_executable(args[0], &errmsg))
 				start_process(env, args);
 			else
 			{
-				ft_miniprint("%l0s%: command not found.\n", args[0]);
+				ft_putendl_fd(errmsg, 2);
+				free(errmsg);
 			}
 		}
 	}
