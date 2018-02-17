@@ -21,17 +21,16 @@ void	exit_error(char *errmsg)
 	exit(1);
 }
 
-int	is_executable(char *filepath, char **errmsg)
+int	is_there_a_file(char *filepath)
 {
-	if (access(filepath, X_OK) != 0)
-	{
-		if (access(filepath, F_OK) == 0)
-		{
-			*errmsg = ft_strjoin(filepath, ": Permission denied.");
-			return (0);
-		}
-		*errmsg = ft_strjoin(filepath, ": Command not found.");
-		return (0);
-	}
-	return (1);
+	if (access(filepath, F_OK) == 0)
+		return (1);
+	return (0);
+}
+
+int	is_executable(char *filepath)
+{
+	if (access(filepath, X_OK) == 0)
+			return (1);
+	return (0);
 }

@@ -13,48 +13,48 @@
 #include <unistd.h>
 #include "libft.h"
 
-static void	print_padding(int width)
+static void	print_padding(int fd, int width)
 {
 	int	i;
 
 	i = 0;
 	while (i < width)
 	{
-		ft_putchar(' ');
+		ft_putchar_fd(' ', fd);
 		++i;
 	}
 }
 
-static void	printnnbr(long long nbr, int *i, int n)
+static void	printnnbr(int fd, long long nbr, int *i, int n)
 {
 	if ((n == 0 || *i < n) && nbr < 0)
 	{
-		ft_putchar('-');
+		ft_putchar_fd('-', fd);
 		nbr *= -1;
 		++*i;
 	}
 	if ((n == 0 || *i < n) && nbr > 9)
 	{
-		printnnbr(nbr / 10, i, n);
-		printnnbr(nbr % 10, i, n);
+		printnnbr(fd, nbr / 10, i, n);
+		printnnbr(fd, nbr % 10, i, n);
 	}
 	else if (n != 0 && *i >= n)
 		return ;
 	else
 	{
-		ft_putchar('0' + nbr);
+		ft_putchar_fd('0' + nbr, fd);
 		++*i;
 	}
 }
 
-void		print_errortype(t_arg *arg, void *realarg)
+void		print_errortype(int fd, t_arg *arg, void *realarg)
 {
 	realarg = arg;
 	arg = realarg;
-	ft_putstr("(type error)");
+	ft_putstr_fd("(type error)", fd);
 }
 
-void		print_integer(t_arg *arg, void *realarg)
+void		print_integer(int fd, t_arg *arg, void *realarg)
 {
 	int			nbr;
 	int			len;
@@ -66,13 +66,13 @@ void		print_integer(t_arg *arg, void *realarg)
 	padding = arg->width - len;
 	i = 0;
 	if (!arg->alignleft)
-		print_padding(padding);
-	printnnbr(nbr, &i, arg->width);
+		print_padding(fd, padding);
+	printnnbr(fd, nbr, &i, arg->width);
 	if (arg->alignleft)
-		print_padding(padding);
+		print_padding(fd, padding);
 }
 
-void		print_string(t_arg *arg, void *realarg)
+void		print_string(int fd, t_arg *arg, void *realarg)
 {
 	char	*str;
 	int		len;
@@ -84,12 +84,12 @@ void		print_string(t_arg *arg, void *realarg)
 	padding = arg->width - len;
 	i = 0;
 	if (!arg->alignleft)
-		print_padding(padding);
+		print_padding(fd, padding);
 	while (i < len && (arg->width == 0 || i < arg->width))
 	{
-		write(1, str + i, 1);
+		write(fd, str + i, 1);
 		++i;
 	}
 	if (arg->alignleft)
-		print_padding(padding);
+		print_padding(fd, padding);
 }

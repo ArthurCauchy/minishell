@@ -19,7 +19,7 @@ void	print_env(t_env **env)
 	cur = *env;
 	while (cur)
 	{
-		ft_miniprint("%l0s%=%l0s%\n", cur->key, cur->value);
+		ft_fminiprint(1, "%l0s%=%l0s%\n", cur->key, cur->value);
 		cur = cur->next;
 	}
 }

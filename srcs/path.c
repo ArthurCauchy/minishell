@@ -12,13 +12,13 @@
 
 #include "minishell.h"
 
-static char	*try_access_indir(char *dir, char *cmd, char **errmsg)
+static char	*try_access_indir(char *dir, char *cmd)
 {
 	char	*tmp;
 
 	tmp = ft_strjoin(dir, "/");
 	tmp = ft_strjoin_free(tmp, ft_strdup(cmd));
-	if (is_executable(tmp, errmsg))
+	if (is_there_a_file(tmp))
 		return (tmp);
 	free(tmp);
 	return (NULL);
@@ -37,7 +37,7 @@ static void	free_splited_path(char **array)
 	free(array);
 }
 
-char		*find_cmd_path(t_env **env, char *cmd, char **errmsg)
+char		*find_cmd_path(t_env **env, char *cmd)
 {
 	char	*path;
 	char	**split_path;
@@ -51,7 +51,7 @@ char		*find_cmd_path(t_env **env, char *cmd, char **errmsg)
 	cur = split_path;
 	while (*cur)
 	{
-		if ((ret = try_access_indir(*cur, cmd, errmsg)))
+		if ((ret = try_access_indir(*cur, cmd)))
 			break ;
 		++cur;
 	}

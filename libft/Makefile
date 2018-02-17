@@ -96,7 +96,7 @@ SRC_NAME = ft_memset.c \
 		 ft_swap.c \
 		 ft_sqrt.c \
 		 ft_nbrlen.c \
-		 ft_miniprint.c \
+		 ft_fminiprint.c \
 		 ft_printfcts.c
 
 OBJ_PATH = objs

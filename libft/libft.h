@@ -27,7 +27,7 @@ typedef struct	s_arg
 {
 	int							alignleft;
 	int							width;
-	void						(*print_fct)(struct s_arg*, void*);
+	void						(*print_fct)(int, struct s_arg*, void*);
 }				t_arg;
 
 void			*ft_memset(void *b, int c, size_t len);
@@ -105,14 +105,14 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int				ft_swap(void **ptr1, void **ptr2, size_t size1, size_t size2);
 int				ft_sqrt(int nb);
 int				ft_nbrlen(long long nb);
-void			ft_miniprint(char *str, ...);
+void			ft_fminiprint(int fd, char *str, ...);
 
 /*
 ** The following functions MUST NOT be used.
 */
 
-void			print_errortype(t_arg *arg, void *realarg);
-void			print_integer(t_arg *arg, void *realarg);
-void			print_string(t_arg *arg, void *realarg);
+void			print_errortype(int fd, t_arg *arg, void *realarg);
+void			print_integer(int fd, t_arg *arg, void *realarg);
+void			print_string(int fd, t_arg *arg, void *realarg);
 
 #endif

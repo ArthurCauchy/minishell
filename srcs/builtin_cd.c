@@ -20,7 +20,7 @@ static int	try_cd(t_env **env, char *path)
 		exit_error("getcwd() error");
 	if (chdir(path) == -1)
 	{
-		ft_miniprint("cd: Error changing dir to '%l0s%'\n", path);
+		ft_fminiprint(2, "cd: Error changing dir to '%l0s%'\n", path);
 		return (-1);
 	}
 	set_env(env, ft_strdup("OLDPWD"), ft_strdup(curr_pwd));

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_miniprint.c                                     :+:      :+:    :+:   */
+/*   ft_fminiprint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static void				(*get_print_fct(char given_type))(t_arg*, void*)
+static void				(*get_print_fct(char given_type))(int, t_arg*, void*)
 {
 	if (given_type == 'd')
 		return (&print_integer);
@@ -44,7 +44,7 @@ static t_arg			*detect_arg(char *str)
 ** and left-align. Can be used with numbers and strings.
 */
 
-void					ft_miniprint(char *str, ...)
+void					ft_fminiprint(int fd, char *str, ...)
 {
 	va_list	ap;
 	t_arg	*arg;
@@ -56,18 +56,18 @@ void					ft_miniprint(char *str, ...)
 		if (*str == '%')
 		{
 			if (*(++str) == '%')
-				ft_putchar('%');
+				ft_putchar_fd('%', 2);
 			else
 			{
 				arg = detect_arg(str - 1);
-				arg->print_fct(arg, va_arg(ap, void*));
+				arg->print_fct(fd, arg, va_arg(ap, void*));
 				free(arg);
 			}
 			while (*str != '%')
 				++str;
 		}
 		else
-			ft_putchar(*str);
+			ft_putchar_fd(*str, fd);
 		++str;
 	}
 	va_end(ap);

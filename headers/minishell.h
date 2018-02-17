@@ -45,7 +45,8 @@ typedef struct		s_builtin
 */
 
 void				exit_error(char *errmsg);
-int					is_executable(char *filepath, char **errmsg);
+int					is_there_a_file(char *filepath);
+int					is_executable(char *filepath);
 
 /*
 ** builtin_manager.c
@@ -114,7 +115,7 @@ int					start_process(t_env **env, char **args);
 ** path.c
 */
 
-char				*find_cmd_path(t_env **env, char *cmd, char **errmsg);
+char				*find_cmd_path(t_env **env, char *cmd);
 
 /*
 ** init.c

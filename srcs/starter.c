@@ -16,27 +16,37 @@ void start_command(t_env **env, char **args)
 {
 	int		retcode;
 	char	*after_path;
-	char	*errmsg;
 
-	errmsg = NULL;
 	if (args[0])
 	{
 		retcode = search_start_builtin(env, args);
 		if (retcode == -2)
 		{
-			if ((after_path = find_cmd_path(env, args[0], &errmsg)))
+			if (ft_strchr(args[0], '/'))
 			{
-				free(args[0]);
-				args[0] = after_path;
-				start_process(env, args);
+				if (!is_there_a_file(args[0]))
+				{
+					ft_fminiprint(2, "%l0s%: Command not found.\n", args[0]);
+					return ;
+				}
 			}
-			else if (is_executable(args[0], &errmsg))
-				start_process(env, args);
 			else
 			{
-				ft_putendl_fd(errmsg, 2);
-				free(errmsg);
+				if ((after_path = find_cmd_path(env, args[0])))
+				{
+					free(args[0]);
+					args[0] = after_path;
+				}
+				else
+				{
+					ft_fminiprint(2, "%l0s%: Command not found.\n", args[0]);
+					return ;
+				}
 			}
+			if (is_executable(args[0]))
+				start_process(env, args);
+			else
+					ft_fminiprint(2, "%l0s%: Permission denied.\n", args[0]);
 		}
 	}
 }
