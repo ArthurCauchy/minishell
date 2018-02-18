@@ -18,7 +18,14 @@ int	builtin_exit(t_env **env, char **args)
 
 	exit_status = 0;
 	if (args[1])
+	{
 		exit_status = ft_atoi(args[1]);
+		if (args[2])
+		{
+			ft_putendl_fd("exit: Too many arguments.", 2);
+			return (1);
+		}
+	}
 	delete_args(args);
 	clear_env(*env);
 	clear_builtins();
