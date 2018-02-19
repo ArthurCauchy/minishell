@@ -16,7 +16,7 @@ int	builtin_unsetenv(t_env **env, char **args)
 {
 	if (!args[1])
 	{
-		ft_putendl_fd("unsetenv: too few arguments.", 2);
+		ft_putendl_fd("unsetenv: Too few arguments.", 2);
 		return (-1);
 	}
 	unset_env(env, args[1]);

@@ -15,15 +15,28 @@
 static int	try_cd(t_env **env, char *path)
 {
 	char	curr_pwd[MAX_PATH_SIZE];
+	char	*curr_pwd_env;
+	int		nocurr;
 
-	if (!getcwd(curr_pwd, MAX_PATH_SIZE))
-		exit_error("getcwd() error");
+	curr_pwd_env = NULL;
+	nocurr = 0;
+	if (!getcwd(curr_pwd, MAX_PATH_SIZE)
+			&& !(curr_pwd_env = read_from_env(env, "PWD")))
+			nocurr = 1;
 	if (chdir(path) == -1)
 	{
-		ft_fminiprint(2, "cd: Error changing dir to '%l0s%'\n", path);
+		if (is_there_a_file(path))
+			ft_fminiprint(2, "%l0s%: Permission denied.\n", path);
+		else
+			ft_fminiprint(2, "%l0s%: No such file or directory.\n", path);
 		return (-1);
 	}
-	set_env(env, ft_strdup("OLDPWD"), ft_strdup(curr_pwd));
+	if (nocurr)
+		set_env(env, ft_strdup("OLDPWD"), ft_strdup("/"));
+	else if (curr_pwd_env)
+		set_env(env, ft_strdup("OLDPWD"), curr_pwd_env);
+	else
+		set_env(env, ft_strdup("OLDPWD"), ft_strdup(curr_pwd));
 	if (!getcwd(curr_pwd, MAX_PATH_SIZE))
 		exit_error("getcwd() error");
 	set_env(env, ft_strdup("PWD"), ft_strdup(curr_pwd));

@@ -1,7 +1,4 @@
 http://i.paysdu42.fr/?page=minishell.c
 https://brennan.io/2015/01/16/write-a-shell-in-c/
 
-- getcwd errror si on supprime le dossier dans lequel on est + pwd||cd (et surement d'autre commandes)
-
-TODO fix:
-- ameliorer la precision des erreurs de cd. (404=/=403)
+- ameliorer l'input

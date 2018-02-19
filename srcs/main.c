@@ -23,6 +23,7 @@ int			main(int argc, char **argv, char **envp)
 	(void)argv;
 	env = NULL;
 	args = NULL;
+	init_signals();
 	init_builtins();
 	init_env(&env, envp);
 	while ((rep = ask_for_input(&env)))

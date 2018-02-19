@@ -22,12 +22,10 @@ void	print_sig_error(int sig)
 		ft_putendl_fd("Floating Point Exception.", 2);
 	else if (sig == SIGILL)
 		ft_putendl_fd("Illegal instruction.", 2);
-	else if (sig == SIGINT)
-		ft_putchar('\n');
 	else if (sig == SIGSEGV)
 		ft_putendl_fd("Segmentation Fault.", 2);
 	else if (sig == SIGTERM)
 		ft_putendl_fd("Terminated.", 2);
-	else
+	else if (sig != SIGINT)
 		ft_putendl_fd("Unknown fatal signal recieved.", 2);
 }

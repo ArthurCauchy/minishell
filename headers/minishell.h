@@ -40,6 +40,8 @@ typedef struct		s_builtin
 	int		(*func)(t_env**, char**);
 }					t_builtin;
 
+extern int	g_running_proc;
+
 /*
 ** utils.c
 */
@@ -91,6 +93,12 @@ char				**env_to_array(t_env **env);
 
 char				**parse_input(char *input, char **errmsg);
 void				delete_args(char **args);
+
+/*
+** signals.c
+*/
+
+void				init_signals(void);
 
 /*
 ** input.c

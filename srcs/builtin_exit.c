@@ -23,7 +23,7 @@ int	builtin_exit(t_env **env, char **args)
 		if (args[2])
 		{
 			ft_putendl_fd("exit: Too many arguments.", 2);
-			return (1);
+			return (-1);
 		}
 	}
 	delete_args(args);

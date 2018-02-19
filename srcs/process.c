@@ -1,5 +1,7 @@
 #include "minishell.h"
 
+int g_running_proc = -1;
+
 static void	post_process(int status)
 {
 	if (WIFSIGNALED(status))
@@ -25,9 +27,11 @@ int					start_process(t_env **env, char **args)
 	}
 	else
 	{
+		g_running_proc = pid;
 		wait(&status);
 		if (status == -1)
 			exit_error("wait() error");
+		g_running_proc = -1;
 	}
 	post_process(status);
 	// gerer status (arret du child), voir si c'est code d'exit ou signal etc...

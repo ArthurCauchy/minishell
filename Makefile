@@ -45,6 +45,7 @@ SRC_NAME = main.c \
 		   output.c \
 		   process.c \
 		   parser.c \
+		   signals.c \
 		   utils.c \
 		   s_env.c \
 		   env.c \
