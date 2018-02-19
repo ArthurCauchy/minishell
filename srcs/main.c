@@ -37,7 +37,7 @@ int			main(int argc, char **argv, char **envp)
 		else
 		{
 			free(rep);
-			start_command(&env, args);
+			start_command(&env, &env, args);
 			delete_args(args);
 		}
 	}

@@ -123,7 +123,7 @@ int					start_process(t_env **env, char **args);
 ** path.c
 */
 
-char				*find_cmd_path(t_env **env, char *cmd);
+char				*find_cmd_path(t_env **env, t_env **cmd_env, char *cmd);
 
 /*
 ** init.c
@@ -136,6 +136,6 @@ void				init_builtins(void);
 ** starter.c
 */
 
-void				start_command(t_env **env, char **args);
+void				start_command(t_env **env, t_env **cmd_env, char **args);
 
 #endif

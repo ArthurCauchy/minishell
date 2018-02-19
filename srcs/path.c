@@ -37,14 +37,15 @@ static void	free_splited_path(char **array)
 	free(array);
 }
 
-char		*find_cmd_path(t_env **env, char *cmd)
+char		*find_cmd_path(t_env **env, t_env **cmd_env, char *cmd)
 {
 	char	*path;
 	char	**split_path;
 	char	**cur;
 	char	*ret;
 
-	if (!(path = read_from_env(env, "PATH")))
+	if (!(path = read_from_env(cmd_env, "PATH"))
+			&& !(path = read_from_env(env, "PATH")))
 		return (NULL);
 	ret = NULL;
 	split_path = ft_strsplit(path, ':'); // faire gaffe a un faux path pourri

@@ -33,10 +33,7 @@ int					builtin_env(t_env **env, char **args)
 		++i;
 	}
 	if (args[i])
-	{
-		ft_putendl((args + i)[0]);
-		start_command(&tmp_env, args + i);
-	}
+		start_command(env, &tmp_env, args + i);
 	else
 		print_env(&tmp_env);
 	clear_env(tmp_env);
