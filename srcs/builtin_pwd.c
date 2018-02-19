@@ -14,12 +14,15 @@
 
 int	builtin_pwd(t_env **env, char **args)
 {
-	char	current_dir[MAX_PATH_SIZE];
+	char	curr_dir[MAX_PATH_SIZE];
 
 	(void)env;
 	(void)args;
-	if (!getcwd(current_dir, MAX_PATH_SIZE))
-		exit_error("getcwd() error");
-	ft_putendl(current_dir);
+	if (!getcwd(curr_dir, MAX_PATH_SIZE))
+	{
+		ft_putendl_fd("pwd: Couldn't find the current directory.", 2);
+		return (1);
+	}
+	ft_putendl(curr_dir);
 	return (0);
 }
