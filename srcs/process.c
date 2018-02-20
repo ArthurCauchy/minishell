@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   process.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/02/20 09:42:57 by acauchy           #+#    #+#             */
+/*   Updated: 2018/02/20 09:43:34 by acauchy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
-int g_running_proc = -1;
+int			g_running_proc = -1;
 
 static void	post_process(int status)
 {
@@ -10,13 +22,11 @@ static void	post_process(int status)
 	}
 }
 
-int					start_process(t_env **env, char **args)
+int			start_process(t_env **env, char **args)
 {
 	pid_t	pid;
 	int		status;
 
-	(void)env;
-	// avant il faudrait tester que l'executable est valide
 	pid = fork();
 	if (pid == -1)
 		exit_error("fork() error");
@@ -32,8 +42,7 @@ int					start_process(t_env **env, char **args)
 		if (status == -1)
 			exit_error("wait() error");
 		g_running_proc = -1;
+		post_process(status);
 	}
-	post_process(status);
-	// gerer status (arret du child), voir si c'est code d'exit ou signal etc...
-	return (0); // et return selon
+	return (0); // TODO adapter le return au code de sortie du child
 }

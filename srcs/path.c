@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 12:23:26 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/12 17:15:33 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/20 09:33:54 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char		*find_cmd_path(t_env **env, t_env **cmd_env, char *cmd)
 			&& !(path = read_from_env(env, "PATH")))
 		return (NULL);
 	ret = NULL;
-	split_path = ft_strsplit(path, ':'); // faire gaffe a un faux path pourri
+	split_path = ft_strsplit(path, ':');
 	cur = split_path;
 	while (*cur)
 	{

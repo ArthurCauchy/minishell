@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/26 12:23:39 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/20 09:33:35 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ void	exit_error(char *errmsg)
 	exit(1);
 }
 
-int	is_there_a_file(char *filepath)
+int		is_there_a_file(char *filepath)
 {
 	if (access(filepath, F_OK) == 0)
 		return (1);
 	return (0);
 }
 
-int	is_executable(char *filepath)
+int		is_executable(char *filepath)
 {
 	if (access(filepath, X_OK) == 0)
-			return (1);
+		return (1);
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/12 17:27:35 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/20 09:36:36 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void start_command(t_env **env, t_env **cmd_env, char **args)
+void	start_command(t_env **env, t_env **cmd_env, char **args)
 {
 	int		retcode;
 	char	*after_path;
@@ -46,7 +46,7 @@ void start_command(t_env **env, t_env **cmd_env, char **args)
 			if (is_executable(args[0]))
 				start_process(cmd_env, args);
 			else
-					ft_fminiprint(2, "%l0s%: Permission denied.\n", args[0]);
+				ft_fminiprint(2, "%l0s%: Permission denied.\n", args[0]);
 		}
 	}
 }

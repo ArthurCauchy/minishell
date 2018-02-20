@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:06:00 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/08 12:12:09 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/20 09:48:21 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	try_cd(t_env **env, char *path)
 	nocurr = 0;
 	if (!getcwd(curr_pwd, MAX_PATH_SIZE)
 			&& !(curr_pwd_env = read_from_env(env, "PWD")))
-			nocurr = 1;
+		nocurr = 1;
 	if (chdir(path) == -1)
 	{
 		if (is_there_a_file(path))

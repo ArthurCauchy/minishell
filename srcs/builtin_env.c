@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:06:00 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/05 10:43:41 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/20 09:43:58 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	add_to_tmp_env(t_env **env, char *str)
 	set_env(env, ft_strsub(str, 0, eq_char - str), ft_strdup(eq_char + 1));
 }
 
-int					builtin_env(t_env **env, char **args)
+int			builtin_env(t_env **env, char **args)
 {
 	t_env	*tmp_env;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:48:57 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/08 15:24:50 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/20 09:46:46 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	**env_to_array(t_env **env)
 	char	**array;
 	size_t	size;
 	size_t	i;
-	
+
 	cur = *env;
 	size = 0;
 	while (cur)
@@ -58,7 +58,8 @@ char	**env_to_array(t_env **env)
 	i = 0;
 	while (cur)
 	{
-		array[i++] = ft_strjoin_free(ft_strjoin(cur->key, "="), ft_strdup(cur->value));
+		array[i++] = ft_strjoin_free(ft_strjoin(cur->key, "="),
+				ft_strdup(cur->value));
 		cur = cur->next;
 	}
 	array[i++] = NULL;

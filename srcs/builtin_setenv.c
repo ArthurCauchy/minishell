@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:06:00 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/05 13:50:51 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/20 09:40:48 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	is_key_alphanum(char *key)
 	return (1);
 }
 
-int	builtin_setenv(t_env **env, char **args)
+int			builtin_setenv(t_env **env, char **args)
 {
 	if (!args[1])
 		print_env(env);
