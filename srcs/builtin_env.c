@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:06:00 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/20 14:27:35 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/20 14:53:18 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,16 @@ int			builtin_env(t_env **env, char **args)
 	t_env	*tmp_env;
 	int		i;
 
-	i = 1;
-	tmp_env = copy_env(env);
+	if (args[1] && ft_strcmp("-i", args[1]) == 0)
+	{
+		i = 2;
+		tmp_env = NULL;
+	}
+	else
+	{
+		i = 1;
+		tmp_env = copy_env(env);
+	}
 	while (args[i] && ft_strchr(args[i], '='))
 	{
 		add_to_tmp_env(&tmp_env, args[i]);
