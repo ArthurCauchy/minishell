@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 09:42:57 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/21 14:54:55 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/21 17:12:41 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,5 @@ int			start_process(t_env **env, char **args)
 		g_running_proc = -1;
 		post_process(status);
 	}
-	return (0); // TODO adapter le return au code de sortie du child
+	return (0);
 }

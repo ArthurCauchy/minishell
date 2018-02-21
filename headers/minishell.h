@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/21 14:57:25 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/21 16:21:26 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ char				*ask_for_input(int fd, t_env **env, char **errmsg);
 
 void				print_prompt(t_env **env);
 void				print_sig_error(int sig);
+void				print_chdir_error(char *path);
 
 /*
 ** process.c

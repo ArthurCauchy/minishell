@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 11:03:45 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/06 14:45:55 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/21 17:18:55 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void			unset_env(t_env **head, char *key)
 			tmp = cur->next;
 			if (cur == *head)
 				*head = cur->next;
-			free(cur->key);
+			free(cur->key); // TODO creer une fonction multifree
 			free(cur->value);
 			free(cur);
 			cur = tmp;
@@ -102,7 +102,7 @@ void			unset_env(t_env **head, char *key)
 	}
 }
 
-t_env	*copy_env(t_env **env)
+t_env			*copy_env(t_env **env)
 {
 	t_env	*cur;
 	t_env	*new_head;
@@ -114,7 +114,8 @@ t_env	*copy_env(t_env **env)
 	new_prev = NULL;
 	while (cur)
 	{
-		if (!(new_cur = create_entry(ft_strdup(cur->key), ft_strdup(cur->value))))
+		if (!(new_cur = create_entry(ft_strdup(cur->key),
+						ft_strdup(cur->value))))
 			exit_error("error creating new env entry in env_copy");
 		if (!new_head)
 			new_head = new_cur;

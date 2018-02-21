@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 09:37:44 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/21 14:53:28 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/21 16:04:14 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static void	sig_handler(int signo)
 {
 	if (signo == SIGINT)
 	{
+		ft_putchar('\n');
 		if (g_running_proc == -1)
 		{
-			ft_putchar('\n');
 			print_prompt(g_envptr);
 		}
 	}

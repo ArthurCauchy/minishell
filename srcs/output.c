@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 09:35:34 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/20 09:35:35 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/21 16:28:06 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,12 @@ void	print_sig_error(int sig)
 		ft_putendl_fd("Terminated.", 2);
 	else if (sig != SIGINT)
 		ft_putendl_fd("Unknown fatal signal recieved.", 2);
+}
+
+void	print_chdir_error(char *path)
+{
+	if (is_there_a_file(path))
+		ft_fminiprint(2, "%l0s%: Permission denied.\n", path);
+	else
+		ft_fminiprint(2, "%l0s%: No such file or directory.\n", path);
 }

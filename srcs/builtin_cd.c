@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 10:06:00 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/21 11:08:21 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/21 16:27:57 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ static int	try_cd(t_env **env, char *path)
 		nocurr = 1;
 	if (chdir(path) == -1)
 	{
-		if (is_there_a_file(path))
-			ft_fminiprint(2, "%l0s%: Permission denied.\n", path);
-		else
-			ft_fminiprint(2, "%l0s%: No such file or directory.\n", path);
+		print_chdir_error(path);
 		return (-1);
 	}
 	if (nocurr)
