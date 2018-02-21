@@ -6,17 +6,20 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/21 14:36:31 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/21 14:57:27 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	init_funcs(t_env **env, char **envp)
+t_env		**g_envptr = NULL;
+
+static void	init_minishell(t_env **env, char **envp)
 {
 	init_signals();
 	init_builtins();
 	init_env(env, envp);
+	g_envptr = env;
 }
 
 int			main(int argc, char **argv, char **envp)
@@ -31,7 +34,7 @@ int			main(int argc, char **argv, char **envp)
 	env = NULL;
 	args = NULL;
 	errmsg = NULL;
-	init_funcs(&env, envp);
+	init_minishell(&env, envp);
 	while (42)
 	{
 		rep = ask_for_input(0, &env, &errmsg);

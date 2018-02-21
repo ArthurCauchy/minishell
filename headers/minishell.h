@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/21 14:37:37 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/21 14:57:25 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct		s_builtin
 }					t_builtin;
 
 extern int			g_running_proc;
+extern t_env		**g_envptr;
 
 /*
 ** utils.c

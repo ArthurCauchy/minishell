@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 09:42:57 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/20 09:43:34 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/21 14:54:55 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int			start_process(t_env **env, char **args)
 		exit_error("fork() error");
 	if (pid == 0)
 	{
-		if (execve(args[0], args, env_to_array(env))) // NULL -> env
+		if (execve(args[0], args, env_to_array(env)))
 			exit_error("execve() error");
 	}
 	else
