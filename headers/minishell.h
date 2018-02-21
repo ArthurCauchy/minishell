@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:10:52 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/10 17:49:57 by arthur           ###   ########.fr       */
+/*   Updated: 2018/02/21 14:37:37 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct		s_builtin
 	int		(*func)(t_env**, char**);
 }					t_builtin;
 
-extern int	g_running_proc;
+extern int			g_running_proc;
 
 /*
 ** utils.c
@@ -104,7 +104,7 @@ void				init_signals(void);
 ** input.c
 */
 
-char				*ask_for_input(t_env **env);
+char				*ask_for_input(int fd, t_env **env, char **errmsg);
 
 /*
 ** output.c

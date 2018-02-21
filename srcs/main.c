@@ -6,11 +6,18 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/20 09:48:00 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/21 14:36:31 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static void	init_funcs(t_env **env, char **envp)
+{
+	init_signals();
+	init_builtins();
+	init_env(env, envp);
+}
 
 int			main(int argc, char **argv, char **envp)
 {
@@ -23,20 +30,29 @@ int			main(int argc, char **argv, char **envp)
 	(void)argv;
 	env = NULL;
 	args = NULL;
-	init_signals();
-	init_builtins();
-	init_env(&env, envp);
-	while ((rep = ask_for_input(&env)))
-	{ // TODO check rep merdique (NULL etc)
+	errmsg = NULL;
+	init_funcs(&env, envp);
+	while (42)
+	{
+		rep = ask_for_input(0, &env, &errmsg);
+		if (errmsg)
+		{
+			ft_putendl_fd(errmsg, 2);
+			free(errmsg);
+			errmsg = NULL;
+			free(rep);//bof bof
+			continue ;//bof bof 2
+		}
 		args = parse_input(rep, &errmsg);
 		if (!args)
 		{
-			ft_putendl(errmsg);
+			ft_putendl_fd(errmsg, 2);
 			free(errmsg);
+			errmsg = NULL;
 		}
-		else
+		free(rep);
+		if (args)
 		{
-			free(rep);
 			start_command(&env, &env, args);
 			delete_args(args);
 		}
