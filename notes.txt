@@ -3,3 +3,6 @@
 "PATH=/bin:/usr/bin"" selon la syntaxe choisie. Lancez 
 ensuite la commande "$> ls". Le binaire /bin/ls doit 
 s'exécuter correctement. 
+
+
+faire gaffe au 'cd' sur un fichier
