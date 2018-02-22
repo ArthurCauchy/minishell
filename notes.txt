@@ -1,0 +1,5 @@
+- Lancez la commande "$> unsetenv PATH", puis la commande 
+"$> setenv PATH "/bin:/usr/bin"" ou "$> setenv 
+"PATH=/bin:/usr/bin"" selon la syntaxe choisie. Lancez 
+ensuite la commande "$> ls". Le binaire /bin/ls doit 
+s'exécuter correctement. 
