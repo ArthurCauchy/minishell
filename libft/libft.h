@@ -6,7 +6,7 @@
 /*   By: acauchy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 10:12:28 by acauchy           #+#    #+#             */
-/*   Updated: 2018/01/17 14:47:39 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/22 14:29:02 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ int				ft_swap(void **ptr1, void **ptr2, size_t size1, size_t size2);
 int				ft_sqrt(int nb);
 int				ft_nbrlen(long long nb);
 void			ft_fminiprint(int fd, char *str, ...);
+void			ft_multifree(int nbargs, ...);
 
 /*
 ** The following functions MUST NOT be used.

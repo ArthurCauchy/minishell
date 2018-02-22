@@ -1,4 +1,0 @@
-http://i.paysdu42.fr/?page=minishell.c
-https://brennan.io/2015/01/16/write-a-shell-in-c/
-
-- ameliorer l'input

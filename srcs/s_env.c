@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/30 11:03:45 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/21 17:18:55 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/22 14:31:27 by acauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,30 +46,28 @@ void			set_env(t_env **head, char *key, char *value)
 	t_env	*new_entry;
 	t_env	*cur;
 
-	if (!*head)
-	{
-		*head = create_entry(key, value);
-		return ;
-	}
 	cur = *head;
-	while (cur)
-	{
-		if (ft_strcmp(cur->key, key) == 0)
+	if (!*head)
+		*head = create_entry(key, value);
+	else
+		while (cur)
 		{
-			free(cur->key);
-			free(cur->value);
-			cur->key = key;
-			cur->value = value;
-			return ;
+			if (ft_strcmp(cur->key, key) == 0)
+			{
+				free(cur->key);
+				free(cur->value);
+				cur->key = key;
+				cur->value = value;
+				return ;
+			}
+			if (!cur->next)
+			{
+				new_entry = create_entry(key, value);
+				cur->next = new_entry;
+				return ;
+			}
+			cur = cur->next;
 		}
-		if (!cur->next)
-		{
-			new_entry = create_entry(key, value);
-			cur->next = new_entry;
-			return ;
-		}
-		cur = cur->next;
-	}
 }
 
 void			unset_env(t_env **head, char *key)
@@ -89,9 +87,7 @@ void			unset_env(t_env **head, char *key)
 			tmp = cur->next;
 			if (cur == *head)
 				*head = cur->next;
-			free(cur->key); // TODO creer une fonction multifree
-			free(cur->value);
-			free(cur);
+			ft_multifree(3, cur->key, cur->value, cur);
 			cur = tmp;
 		}
 		else
