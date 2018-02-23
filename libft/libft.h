@@ -6,7 +6,7 @@
 /*   By: acauchy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 10:12:28 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/22 14:29:02 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/23 13:18:45 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int				ft_sqrt(int nb);
 int				ft_nbrlen(long long nb);
 void			ft_fminiprint(int fd, char *str, ...);
 void			ft_multifree(int nbargs, ...);
+int				ft_count(char *str, char c);
 
 /*
 ** The following functions MUST NOT be used.

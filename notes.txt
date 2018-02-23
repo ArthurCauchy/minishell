@@ -6,3 +6,5 @@ s'exécuter correctement.
 
 
 faire gaffe au 'cd' sur un fichier
+
+ajouter header 42 au ft_count ds la lib

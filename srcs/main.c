@@ -6,7 +6,7 @@
 /*   By: acauchy <acauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/20 12:03:19 by acauchy           #+#    #+#             */
-/*   Updated: 2018/02/21 17:10:37 by acauchy          ###   ########.fr       */
+/*   Updated: 2018/02/23 13:47:18 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,13 @@ static int	input_and_parse(t_env **env, char ***args)
 		return (-1);
 	}
 	*args = parse_input(rep, &errmsg);
-	if (errmsg)
-		print_n_free_errmsg(&errmsg);
 	free(rep);
-	return (errmsg ? -1 : 0);
+	if (errmsg)
+	{
+		print_n_free_errmsg(&errmsg);
+		return (-1);
+	}
+	return (0);
 }
 
 int			main(int argc, char **argv, char **envp)
